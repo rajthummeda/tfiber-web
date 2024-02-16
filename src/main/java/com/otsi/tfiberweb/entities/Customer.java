@@ -28,15 +28,15 @@ public class Customer {
 
     @ManyToOne
     @JoinColumn(name = "plan_id")
-    private Plan plan;
+    private Plans plan;
 
     @ManyToOne
     @JoinColumn(name = "offer_id")
-    private Offer offer;
+    private Offers offer;
 
     @ManyToOne
     @JoinColumn(name = "service_id")
-    private Service service;
+    private Services service;
 
     @Column(name = "first_name")
     private String firstName;
@@ -74,27 +74,27 @@ public class Customer {
 		this.customerId = customerId;
 	}
 
-	public Plan getPlan() {
+	public Plans getPlan() {
 		return plan;
 	}
 
-	public void setPlan(Plan plan) {
+	public void setPlan(Plans plan) {
 		this.plan = plan;
 	}
 
-	public Offer getOffer() {
+	public Offers getOffer() {
 		return offer;
 	}
 
-	public void setOffer(Offer offer) {
+	public void setOffer(Offers offer) {
 		this.offer = offer;
 	}
 
-	public Service getService() {
+	public Services getService() {
 		return service;
 	}
 
-	public void setService(Service service) {
+	public void setService(Services service) {
 		this.service = service;
 	}
 

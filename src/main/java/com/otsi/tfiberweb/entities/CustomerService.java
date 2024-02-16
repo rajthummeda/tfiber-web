@@ -17,15 +17,15 @@ public class CustomerService {
 
     @ManyToOne
     @JoinColumn(name = "service_id")
-    private Service service;
+    private Services service;
     
     @ManyToOne
     @JoinColumn(name = "plan_id")
-    private Plan plan;
+    private Plans plan;
 
     @ManyToOne
     @JoinColumn(name = "offer_id")
-    private Offer offer;
+    private Offers offer;
     
     @Column(name = "data_limit")
     private String dataLimit;
@@ -61,11 +61,11 @@ public class CustomerService {
 		this.name = name;
 	}
 
-	public Service getService() {
+	public Services getService() {
 		return service;
 	}
 
-	public void setService(Service service) {
+	public void setService(Services service) {
 		this.service = service;
 	}
 
@@ -109,19 +109,19 @@ public class CustomerService {
 		this.customer = customer;
 	}
 
-	public Plan getPlan() {
+	public Plans getPlan() {
 		return plan;
 	}
 
-	public void setPlan(Plan plan) {
+	public void setPlan(Plans plan) {
 		this.plan = plan;
 	}
 
-	public Offer getOffer() {
+	public Offers getOffer() {
 		return offer;
 	}
 
-	public void setOffer(Offer offer) {
+	public void setOffer(Offers offer) {
 		this.offer = offer;
 	}
 }

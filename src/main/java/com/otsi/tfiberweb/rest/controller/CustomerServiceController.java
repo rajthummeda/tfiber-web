@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.otsi.tfiberweb.dto.CustomerServiceDTO;
 import com.otsi.tfiberweb.entities.Customer;
 import com.otsi.tfiberweb.entities.CustomerService;
-import com.otsi.tfiberweb.entities.Offer;
-import com.otsi.tfiberweb.entities.Plan;
-import com.otsi.tfiberweb.entities.Service;
+import com.otsi.tfiberweb.entities.Offers;
+import com.otsi.tfiberweb.entities.Plans;
+import com.otsi.tfiberweb.entities.Services;
 import com.otsi.tfiberweb.repository.CustomerRepository;
 import com.otsi.tfiberweb.repository.CustomerServiceRepository;
-import com.otsi.tfiberweb.repository.OfferRepository;
-import com.otsi.tfiberweb.repository.PlanRepository;
-import com.otsi.tfiberweb.repository.ServiceRepository;
+import com.otsi.tfiberweb.repository.OffersRepository;
+import com.otsi.tfiberweb.repository.PlansRepository;
+import com.otsi.tfiberweb.repository.ServicesRepository;
 
 @RestController
 @RequestMapping("/api/v1/customer-services")
@@ -39,21 +39,21 @@ public class CustomerServiceController {
 	private CustomerServiceRepository customerServiceRepository;
 
 	@Autowired
-	private PlanRepository planRepository;
+	private PlansRepository planRepository;
 
 	@Autowired
-	private ServiceRepository serviceRepository;
+	private ServicesRepository serviceRepository;
 
 	@Autowired
-	private OfferRepository offerRepository;
+	private OffersRepository offerRepository;
 
 	/* Create a new customer service */
 	@PostMapping
 	public ResponseEntity<String> createCustomerService(@RequestBody CustomerServiceDTO customerServiceDTO) {
 		// Retrieve plan, service, and offer by their IDs
-		Plan plan = planRepository.findById(customerServiceDTO.getPlanId()).orElse(null);
-		Service service = serviceRepository.findById(customerServiceDTO.getServiceId()).orElse(null);
-		Offer offer = offerRepository.findById(customerServiceDTO.getOfferId()).orElse(null);
+		Plans plan = planRepository.findById(customerServiceDTO.getPlanId()).orElse(null);
+		Services service = serviceRepository.findById(customerServiceDTO.getServiceId()).orElse(null);
+		Offers offer = offerRepository.findById(customerServiceDTO.getOfferId()).orElse(null);
 
 		// Check if plan, service, and offer exist
 		if (plan == null || service == null || offer == null) {
@@ -96,9 +96,9 @@ public class CustomerServiceController {
 		}
 
 		// Retrieve plan, service, and offer by their IDs
-		Plan plan = planRepository.findById(customerServiceDTO.getPlanId()).orElse(null);
-		Service service = serviceRepository.findById(customerServiceDTO.getServiceId()).orElse(null);
-		Offer offer = offerRepository.findById(customerServiceDTO.getOfferId()).orElse(null);
+		Plans plan = planRepository.findById(customerServiceDTO.getPlanId()).orElse(null);
+		Services service = serviceRepository.findById(customerServiceDTO.getServiceId()).orElse(null);
+		Offers offer = offerRepository.findById(customerServiceDTO.getOfferId()).orElse(null);
 
 		// Check if plan, service, and offer exist
 		if (plan == null || service == null || offer == null) {
